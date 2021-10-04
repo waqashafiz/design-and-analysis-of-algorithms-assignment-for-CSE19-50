@@ -1,16 +1,75 @@
-### Hi there 👋
+//display even numbers in a linked list
 
-<!--
-**waqashafiz/waqashafiz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+#include<stdio.h>
+#include<stdlib.h>
 
-Here are some ideas to get you started:
+void create();                    
+void even();
+struct nod  
+{  
+    int data;  
+    struct nod *next;   
+};
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+struct nod*head=NULL,*tail=NULL;
+
+int main()
+{
+	int c;
+	while(1)
+	{
+		
+		printf("\n 1 to  create \n 2 to display even numbers \n ");
+		printf(" enter your choice \n");
+		scanf("%i",&c);
+		switch(c)
+		{
+			case 1:create();
+			break;
+		
+			case 2:even();
+			break;
+			
+			default :printf("try again!");
+			return 0;
+		}
+	}
+}
+
+void create()
+{
+	int n,i;
+	printf("enter the number of nodes you want to create ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		struct nod* temp=(struct nod *)malloc(sizeof(struct nod));
+		printf("enter your data ");
+		scanf("%d",&temp->data);
+		temp->next=NULL;
+		if(i==0)
+		{
+			head=temp;
+			tail=temp;
+		}
+		else 
+		{
+			tail->next=temp;
+			tail=temp;
+		}
+	}
+ } 
+ 
+ 
+ void even()
+ {
+ 	struct nod *ptr;
+ 	printf("the even numbers are as :\n");
+ 	ptr=head;
+ 	while(ptr!=NULL)
+ 	{
+ 		if(ptr->data%2==0)
+ 		printf("%d",ptr->data);
+ 		ptr=ptr->next;
+	 }
+ }
