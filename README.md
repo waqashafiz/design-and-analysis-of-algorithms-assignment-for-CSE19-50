@@ -60,16 +60,3 @@ void create()
 	}
  } 
  
- 
- void even()
- {
- 	struct nod *ptr;
- 	printf("the even numbers are as :\n");
- 	ptr=head;
- 	while(ptr!=NULL)
- 	{
- 		if(ptr->data%2==0)
- 		printf("%d",ptr->data);
- 		ptr=ptr->next;
-	 }
- }
